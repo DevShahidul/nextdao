@@ -1,0 +1,42 @@
+.field_row {
+    width: 100%;
+}
+
+.field_row label {
+    font-size: 14px;
+    color: #111111;
+    margin-bottom: 10px;
+    display: block;
+    width: 100%;
+}
+
+.input_field {
+    height: 55px;
+}
+
+.text_field {
+    width: 100%;
+    background-color: #FFFFFF;
+    border: 1px solid rgba(17, 17, 17, 0.2);
+    border-radius: 70px;
+    outline: none;
+    box-shadow: none;
+    transition: all 0.3s;
+    padding: 12px 22.5px;
+    color: #111111;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 400;
+}
+
+.text_field:active,
+.text_field:focus {
+    outline: none;
+    box-shadow: none;
+    border-color: #111111;
+}
+
+.textarea {
+    height: 130px;
+}
