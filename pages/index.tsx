@@ -7,7 +7,8 @@ import SwiperCore, { Navigation } from 'swiper';
 import 'swiper/css';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Footer, Header } from '../components';
+import { Accordion, Footer, Header } from '../components';
+import { accordionContents } from '../components/accordion/accordionContent';
 import { BirthCake, ExternalLink, HelpIcon, Icon3line, LeftArrow, LoveIcon, RightArrow, StackedFiles, VerifiedIcon } from "../components/icons";
 import { InputField } from "../components/input-field";
 import author_thumb1 from '../public/images/biding-author/author_thumb1.png';
@@ -34,9 +35,10 @@ const Home: NextPage = () => {
   const swiperPrevRef = useRef(null);
   const swiperNextRef = useRef(null);
   const [bidField, setBidField] = useState('');
+  const [activeIndex, setActiveIndex] = useState(1);
 
-  const handleBidField = (event) => {
-    const value = event.target.value;
+  const handleBidField = el => {
+    const value = el.target.value;
     setBidField(value);
   }
 
@@ -202,9 +204,25 @@ const Home: NextPage = () => {
         </section>
         <section className={styles.accordion_section}>
           <div className="container">
-            <div className={styles.accordion_item}>
-
-            </div>
+            {accordionContents.map((item,index) => {
+              const ariaExpanded = index === activeIndex ? true : false;
+              const haneldActiveIndex = () => {
+                setActiveIndex(index);
+                // const selectedItem = e.target.parentNode;
+                // const selectedContent = selectedItem.children[1];
+                // let elHight = 0;
+                // if(Boolean(selectedContent)){
+                //   const elChildren = selectedContent.children;
+                //   for(let i=0; i<elChildren.length; i++){
+                //     elHight += elChildren[i].clientHeight + (i*24);
+                //   }
+                // }
+                // console.log('selectedContent:', selectedContent, 'Accordion_childrenHeight', elHight);
+              }
+              return (
+                <Accordion {...item} ariaExpanded={ariaExpanded} handleClick={haneldActiveIndex} />
+              );
+            })}
           </div>
         </section>
       </main>

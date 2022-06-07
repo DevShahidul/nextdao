@@ -333,7 +333,8 @@
 /* Blog section style */
 .blog_section {
   width: 100%;
-  margin-top: 100px;
+  padding-top: 100px;
+  padding-bottom: 26px;
 }
 
 .content_row {
@@ -362,6 +363,17 @@
   width: 48.936%;
   margin-left: 7.075%;
 }
+
+/* //End blog section style 
+========================= */
+
+/* Accordion section style */
+.accordion_section {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.accordion_text {}
 
 
 
