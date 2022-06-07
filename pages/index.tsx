@@ -8,7 +8,7 @@ import 'swiper/css';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Footer, Header } from '../components';
-import { BirthCake, ExternalLink, HelpIcon, Icon3line, LeftArrow, LoveIcon, RightArrow, StackedFiles } from "../components/icons";
+import { BirthCake, ExternalLink, HelpIcon, Icon3line, LeftArrow, LoveIcon, RightArrow, StackedFiles, VerifiedIcon } from "../components/icons";
 import { InputField } from "../components/input-field";
 import author_thumb1 from '../public/images/biding-author/author_thumb1.png';
 import author_thumb2 from '../public/images/biding-author/author_thumb2.png';
@@ -175,8 +175,8 @@ const Home: NextPage = () => {
                           <span className={styles.btn_text}>Bid history</span>
                         </button>
                         <button className={`btn d-flex align-center ${styles.winner_info_btn} ${styles.btn_etherscan}`}>
-                          <StackedFiles className={styles.btn_icon} />
-                          <span className={styles.btn_text}>Bid history</span>
+                          <VerifiedIcon className={styles.btn_icon} />
+                          <span className={styles.btn_text}>Etherscan</span>
                         </button>
                       </div>
                     </div>
@@ -202,7 +202,9 @@ const Home: NextPage = () => {
         </section>
         <section className={styles.accordion_section}>
           <div className="container">
-            <div className={styles.accordion_item}></div>
+            <div className={styles.accordion_item}>
+
+            </div>
           </div>
         </section>
       </main>
