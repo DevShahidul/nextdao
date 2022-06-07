@@ -1,0 +1,44 @@
+.footer {
+    width: 100%;
+    padding: 24.5px 0;
+    background-color: #111111;
+}
+
+.link_row {
+    margin-left: -10px;
+    margin-right: -10px;
+    flex-flow: row wrap;
+}
+
+.item_link {
+    margin: 5px 10px;
+    color: #FFFFFF;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 600;
+}
+
+.item_logo {
+    width: 20px;
+    height: 20px;
+}
+
+.item_logo:first-child {
+    width: 24px;
+    height: 19px;
+}
+
+.item_logo img {
+    max-width: 100%;
+    display: block;
+}
+
+.item_text {
+    color: currentColor;
+    display: block;
+    text-transform: capitalize;
+}
+
+.item_logo~.item_text {
+    margin-left: 10px;
+}
