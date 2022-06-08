@@ -2,13 +2,14 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import React, { useRef, useState } from "react";
-import SwiperCore, { Navigation } from 'swiper';
+import SwiperCore, { EffectFade, Navigation } from 'swiper';
 // Import Swiper styles
 import 'swiper/css';
+import 'swiper/css/effect-fade';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Accordion, Footer, Header } from '../components';
-import { accordionContents } from '../components/accordion/accordionContent';
+import { accordionContents } from '../components/accordion-pane/accordionContent';
 import { BirthCake, ExternalLink, HelpIcon, Icon3line, LeftArrow, LoveIcon, RightArrow, StackedFiles, VerifiedIcon } from "../components/icons";
 import { InputField } from "../components/input-field";
 import author_thumb1 from '../public/images/biding-author/author_thumb1.png';
@@ -16,6 +17,7 @@ import author_thumb2 from '../public/images/biding-author/author_thumb2.png';
 import blog_thumb1 from '../public/images/blog_thumb1.png';
 import thumb_1 from '../public/images/hero-slider/thumb_1.jpg';
 import styles from "../styles/Home.module.css";
+
 SwiperCore.use([Navigation]);
 
 const bidingListContents = [
@@ -35,9 +37,8 @@ const Home: NextPage = () => {
   const swiperPrevRef = useRef(null);
   const swiperNextRef = useRef(null);
   const [bidField, setBidField] = useState('');
-  const [activeIndex, setActiveIndex] = useState(1);
 
-  const handleBidField = el => {
+  const handleBidField = (el) => {
     const value = el.target.value;
     setBidField(value);
   }
@@ -70,6 +71,8 @@ const Home: NextPage = () => {
               </div>
               <div className={styles.content_wrap}>
                 <Swiper
+                  modules={[EffectFade]}
+                  effect="fade"
                   spaceBetween={50}
                   slidesPerView={1}
                   onSlideChange={() => console.log('slide change')}
@@ -106,7 +109,7 @@ const Home: NextPage = () => {
                       <form>
                         <div className={styles.place_bid_row}>
                           <Icon3line className={styles.field_icon} />
-                          <InputField id='bid_field' name='bid_field' placeholder='71.56 or more' value={bidField} handleChange={handleBidField} type='text' />
+                          <InputField id='bid_field' name='bid_field' placeholder='71.56 or more' value={bidField} handleChange={(e)=> handleBidField(e)} type='text' />
                           <button className={`btn ${styles.btn_place_bid}`}>Place bid</button>
                         </div>
                       </form>
@@ -193,10 +196,13 @@ const Home: NextPage = () => {
             <div className={`d-flex ${styles.content_row}`}>
               <div className={styles.content}>
                 <h2>One Bloc, Everyday, Forever.</h2>
+                <div className={`mobile_view ${styles.content_thumb}`}>
+                  <Image src={blog_thumb1} width={460} height={482} alt="blog thumb" />
+                </div>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quisque non tellus orci ac auctor. Dapibus ultrices in iaculis nunc sed augue lacus viverra vitae. Maecenas accumsan lacus vel facilisis volutpat est velit egestas. Sit amet porttitor eget dolor morbi quis.</p>
                 <p>Quisque non tellus orci ac auctor. Dapibus ultrices in iaculis nunc sed <a href="#">augue lacus viverra</a> vitae.</p>
               </div>
-              <div className={styles.content_thumb}>
+              <div className={`desktop_view ${styles.content_thumb}`}>
                 <Image src={blog_thumb1} width={460} height={482} alt="blog thumb" />
               </div>
             </div>
@@ -204,25 +210,7 @@ const Home: NextPage = () => {
         </section>
         <section className={styles.accordion_section}>
           <div className="container">
-            {accordionContents.map((item,index) => {
-              const ariaExpanded = index === activeIndex ? true : false;
-              const haneldActiveIndex = () => {
-                setActiveIndex(index);
-                // const selectedItem = e.target.parentNode;
-                // const selectedContent = selectedItem.children[1];
-                // let elHight = 0;
-                // if(Boolean(selectedContent)){
-                //   const elChildren = selectedContent.children;
-                //   for(let i=0; i<elChildren.length; i++){
-                //     elHight += elChildren[i].clientHeight + (i*24);
-                //   }
-                // }
-                // console.log('selectedContent:', selectedContent, 'Accordion_childrenHeight', elHight);
-              }
-              return (
-                <Accordion {...item} ariaExpanded={ariaExpanded} handleClick={haneldActiveIndex} />
-              );
-            })}
+            <Accordion panels={ accordionContents } />
           </div>
         </section>
       </main>

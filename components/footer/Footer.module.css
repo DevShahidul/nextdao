@@ -43,3 +43,9 @@
 .item_logo~.item_text {
     margin-left: 10px;
 }
+
+@media screen and (max-width: 767px) {
+    .footer {
+        margin-top: 0;
+    }
+}
