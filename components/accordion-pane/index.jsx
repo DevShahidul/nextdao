@@ -1,4 +1,3 @@
-
 import React, { Component } from "react";
 import ReactDOM from 'react-dom';
 import { ArrowDown } from '../icons';
@@ -95,7 +94,7 @@ class Accordion extends Component {
 			<div className='accordion' role='tablist'>
 				{panels.map((panel, index) =>
 					<Panel
-						key={ index }
+						key={`accordion_item_${index+1}` }
 						activeTab={ activeTab }
 						index={ index }
 						{ ...panel } 
