@@ -251,6 +251,20 @@
   font-weight: 600;
 }
 
+.biding_time {
+  color: rgba(17, 17, 17, 0.4);
+}
+
+.author_info {
+  margin-left: 8px;
+}
+
+.author_info span {
+  width: 100%;
+  display: block;
+  line-height: 21px;
+}
+
 .biding_amount_text {
   font-weight: 600;
   line-height: 21px;
@@ -381,6 +395,60 @@
 .accordion_section {
   padding-top: 50px;
   padding-bottom: 50px;
+}
+
+
+/* Modal style */
+.modal_title_row {
+  width: 100%;
+}
+
+.modal_figure {
+  width: 190px;
+  height: 190px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.modal_figure span,
+.modal_figure img {
+  display: block;
+  width: 100% !important;
+}
+
+.title_content {
+  margin-left: 54px;
+}
+
+.title_content h3 {
+  color: rgba(17, 17, 17, 0.4);
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.title_content h2 {
+  margin-top: 4px;
+  margin-bottom: 0;
+}
+
+.modal_title_row+.bid_items_wrap {
+  margin-top: 28px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+
+.modal_title_row+.bid_items_wrap .list_item {
+  border-color: rgba(17, 17, 17, 0.1);
+}
+
+.modal_title_row+.bid_items_wrap .list_item:last-child {
+  border: 0;
+}
+
+.modal_title_row+.bid_items_wrap .biding_amount_icon path,
+.modal_title_row+.bid_items_wrap .external_link path {
+  fill: #111111;
 }
 
 @media (max-width: 991px) {

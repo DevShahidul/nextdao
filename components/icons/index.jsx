@@ -1,5 +1,6 @@
 export { default as ArrowDown } from './arrow-down';
 export { default as BirthCake } from './birth-cake';
+export { default as CloseRound } from './close-round';
 export { default as ExternalLink } from './externalLink';
 export { default as HelpIcon } from './helpIcon';
 export { default as Icon3line } from './icon3line';
