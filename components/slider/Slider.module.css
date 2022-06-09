@@ -1,0 +1,11 @@
+.slider_section {
+    width: 100%;
+}
+
+.slide_item {
+    min-height: 400px;
+}
+
+.slide_thumb {
+    min-height: 150px;
+}

@@ -1,11 +1,8 @@
 import Image from "next/image";
-import React, { useEffect, useRef, useState } from 'react';
-import { Controller, EffectFade, Navigation } from 'swiper';
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/effect-fade';
-// Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
+import React, { useRef, useState } from 'react';
+import Slider from "react-slick";
+import 'slick-carousel/slick/slick-theme.css';
+import 'slick-carousel/slick/slick.css';
 import { InputField } from '../..';
 import author_thumb1 from '../../../public/images/biding-author/author_thumb1.png';
 import author_thumb2 from '../../../public/images/biding-author/author_thumb2.png';
@@ -37,78 +34,72 @@ const heroImages = [
 ]
 
 const HeroSection = ({handleIsHistory}) => {
-    const swiperPrevRef = useRef(null);
-    const swiperNextRef = useRef(null);
+    const sliderNavPrevRef = useRef(null);
+    const sliderNavNextRef = useRef(null);
     const [bidField, setBidField] = useState('');
     const onHandleChange = (e) => setBidField(e.target.value);
-
-    // Slider 
-    // Swiper instance
-    const [swiper, updateSwiper] = useState(null);
-    // Swiper thumbsinstance
-    const [swiperThumbs, updateSwiperThumbs] = useState(null);
-
-    const thumbsParams = {
-        modules: [Controller],
-        slideToClickedSlide: true,
-        slidesPerView: 1,
-        centeredSlides: true,
-        spaceBetween: 10,
-        getSwiper: updateSwiperThumbs, // Get swiper instance callback
-    };
     
-    // Bind swiper and swiper thumbs
-    useEffect(() => {
-        if (swiper && swiperThumbs) {
-            swiper.controller.control = swiperThumbs;
-            swiperThumbs.controller.control = swiper;
-        }
-    }, [swiper, swiperThumbs]);
+    // Slider thumbsinstance
+    const [nav1, setNav1] = useState();
+    const [nav2, setNav2] = useState();
+    const [slideIndex, setSlideIndex] = useState();
+    const [updateCount, setUpdateCount] = useState();
 
+    const gotoNext = () => {
+        nav1.slickNext();
+        console.log(slideIndex);
+    }
+    
+    const gotoPrev = () => {
+        nav1.slickPrev();
+    }
 
+    const contentSwiperParams = {
+        dots: false,
+        infinite: false,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        fade: true,
+        afterChange: () => setUpdateCount(updateCount + 1),
+        beforeChange: (current, next) => console.log(current, next)
+    };
+
+    const thumbnailSwiperParams = {
+        dots: false,
+        infinite: false,
+        fade: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1
+    };
   return (
     <section className={styles.hero_section}>
         <div className={styles.hero_thumb}>
-            <Swiper {...thumbsParams}>
+            <Slider {...thumbnailSwiperParams} asNavFor={nav1} ref={(slider2) => setNav2(slider2)}>
                 {heroImages.map((img, idx) => (
-                    <SwiperSlide key={`slide_${idx}`} style={{ width: "100px" }}>
-                        <Image src={img.thumb} width={1920} height={780} alt="Hero Slider image" />
-                    </SwiperSlide>
+                    <div className={styles.slide_thumb}>
+                        <Image src={img.thumb} width={1920} height={780} alt="Hero Slider image" key={`slide_${idx}`}/>
+                    </div>
                 ))}
-            </Swiper>
+            </Slider>
         </div>
         <div className={`container d-flex ${styles.hero_container}`}>
             <div className={styles.hero_content}>
                 <div className={`d-flex align-center justify-center ${styles.slide_nav_row}`}>
                     <div className={`d-flex align-center ${styles.slide_nav}`}>
-                        <button className={`btn d-flex align-center justify-center ${styles.slide_prev}`} ref={swiperPrevRef}>
+                        <button className={`btn d-flex align-center justify-center slidePrev-btn ${styles.slide_btn}`} ref={sliderNavPrevRef} onClick={()=>gotoPrev()}>
                         <LeftArrow />
                         </button>
-                        <button className={`btn d-flex align-center justify-center ${styles.slide_prev}`} ref={swiperNextRef}>
+                        <button className={`btn d-flex align-center justify-center slideNext-btn ${styles.slide_btn}`} ref={sliderNavNextRef} onClick={()=>gotoNext()}>
                         <RightArrow />
                         </button>
                     </div>
                     <div className={styles.date}>June 01, 2022</div>
                 </div>
                 <div className={styles.content_wrap}>
-                    <Swiper
-                        modules={[Navigation,EffectFade, Controller]}
-                        effect="fade"
-                        spaceBetween={50}
-                        slidesPerView={1}
-                        // onSlideChange={() => console.log('slide change')}
-                        // onSwiper={(swiper) => console.log(swiper)}
-                        getSwiper={updateSwiper}
-                        navigation={{
-                            prevEl: swiperPrevRef.current,
-                            nextEl: swiperNextRef.current,
-                        }}
-                        onBeforeInit={(swiper)=>{
-                            swiper.params.navigation.prevEl = swiperPrevRef.current;
-                            swiper.params.navigation.nextEl = swiperNextRef.current;
-                        }}
-                    >
-                        <SwiperSlide>
+                    <Slider {...contentSwiperParams} asNavFor={nav2} ref={(slider1) => setNav1(slider1)}>
+                        <div className={styles.slide_item}>
                             <h2 className={styles.content_title}>Bloc 298</h2>
                             <div className={`d-flex justify-center ${styles.bid_info_row}`}>
                                 <div className={styles.info_col}>
@@ -163,8 +154,8 @@ const HeroSection = ({handleIsHistory}) => {
                                 </ul>
                                 <a href="#" className={styles.view_all_bids_link}>View all bids</a>
                             </div>
-                        </SwiperSlide>
-                        <SwiperSlide>
+                        </div>
+                        <div className={styles.slide_item}>
                             <h2 className={styles.content_title}>Bloc 298</h2>
                             <div className={`d-flex justify-center ${styles.bid_info_row}`}>
                                 <div className={styles.info_col}>
@@ -211,8 +202,8 @@ const HeroSection = ({handleIsHistory}) => {
                                 </button>
                                 </div>
                             </div>
-                        </SwiperSlide>
-                    </Swiper>
+                        </div>
+                    </Slider>
                 </div>
             </div>
         </div>

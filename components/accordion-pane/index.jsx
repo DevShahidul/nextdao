@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import ReactDOM from 'react-dom';
 import { ArrowDown } from '../icons';
 import styles from './Accordion.module.css';
 class Panel extends Component {
@@ -9,13 +8,13 @@ class Panel extends Component {
 		this.state = {
 			height: 0
 		};
+		this.wrapper = React.createRef();
 	}
 
 	componentDidMount() {
 		window.setTimeout(() => {
-			const el = ReactDOM.findDOMNode(this);
-            // console.log('Elements:', el);
-			const height = el.querySelector('.panel__inner').scrollHeight;
+            // console.log('Elements wrapper:', this.wrapper.current.children);
+			const height = this.wrapper.current.children[1].scrollHeight;
 			this.setState({
 				height
 			});
@@ -32,8 +31,8 @@ class Panel extends Component {
 
 		return (
 			<div className={styles.accordion_item}
-				role='tabpanel'
-				aria-expanded={ isActive }>
+				ref={this.wrapper}
+				role='tabpanel'>
                 <h3 className={`d-flex align-center ${ !isActive ? styles.accordion_title : styles.accordion_title_active}`} role='tab' onClick={ activateTab }>
                     { title }
                     <button className={`btn ml-auto d-flex align-center justify-center ${ !isActive ? styles.accordion_btn : styles.accordion_btn_active }`}>

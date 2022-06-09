@@ -12,7 +12,6 @@
   font-display: swap;
 }
 
-
 html,
 body {
   padding: 0;
@@ -135,8 +134,13 @@ figure {
   opacity: 0.2;
 }
 
+
 .swiper-slide:not(.swiper-slide-active) {
   opacity: 0 !important;
+}
+
+.slick-arrow {
+  display: none !important;
 }
 
 @media screen and (max-width: 767px) {

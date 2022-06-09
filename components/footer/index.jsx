@@ -37,7 +37,7 @@ const Footer = () => {
             <div className={`${styles.link_row} d-flex align-center justify-center`}>
                 {footerLinks.map((item, index) => {
                     return (
-                        <a href={item.hrefLink} target="_blank" className={`${styles.item_link} d-flex align-center`} key={`${item}_${index}`}>
+                        <a href={item.hrefLink} target="_blank" rel="noreferrer" className={`${styles.item_link} d-flex align-center`} key={`${item}_${index}`}>
                             <figure className={styles.item_logo}>
                                 <Image src={item.thumb} alt={`${item.title} Logo`} width={20} height={20} />
                             </figure>

@@ -1,11 +1,12 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Accordion, Footer, Header, Modal } from '../components';
 import { accordionContents } from '../components/accordion-pane/accordionContent';
 import { ExternalLink, Icon3line } from "../components/icons";
 import { BlogSection, HeroSection } from '../components/page-layouts';
+// import Gallery from '../components/slider';
 import author_thumb1 from '../public/images/biding-author/author_thumb1.png';
 import author_thumb2 from '../public/images/biding-author/author_thumb2.png';
 import modal_figure from '../public/images/modal_figure.png';
@@ -43,12 +44,7 @@ const Home: NextPage = () => {
   // SwiperCore.use([Navigation]);
   const [isHistory, setIsHistory] = useState(false);
 
-  useEffect(()=>{
-    
-  },[])
-
   return (
-    <>
     <div className={`d-flex direction-column ${styles.page_container}`}>
       <Head>
         <title>Writer's Bloc | Home</title>
@@ -59,6 +55,7 @@ const Home: NextPage = () => {
       <main className={styles.main}>
         <HeroSection handleIsHistory={()=> setIsHistory(!isHistory)} />
         <BlogSection />
+        {/* <Gallery /> */}
         <section className={styles.accordion_section}>
           <div className="container">
             <Accordion panels={ accordionContents } />
@@ -67,7 +64,7 @@ const Home: NextPage = () => {
       </main>
       <Footer />
       {isHistory && 
-        <Modal handleClose={() => setIsHistory(false)}>
+        (<Modal handleClose={() => setIsHistory(false)}>
           <div className={`d-flex align-center ${styles.modal_title_row}`}>
             <figure className={styles.modal_figure}>
               <Image src={modal_figure} width={190} height={190} alt="Modal figure" />
@@ -102,10 +99,9 @@ const Home: NextPage = () => {
               })}
             </ul>
           </div>
-        </Modal>
+        </Modal>)
       }
     </div>
-    </>
   );
 };
 
