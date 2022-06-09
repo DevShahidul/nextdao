@@ -15,7 +15,7 @@ export const BidingSlide = ({currentBid, bids, isFirstBid, handleIsHistory}) => 
     const born = 'Jun 09, 2022';
     const held_by = username;
     const held_url = website;
-
+    
     const [bidField, setBidField] = useState('');
     const onHandleChange = (e) => setBidField(e.target.value);
   return (

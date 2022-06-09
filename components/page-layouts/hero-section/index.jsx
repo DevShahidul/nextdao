@@ -12,29 +12,6 @@ import { LeftArrow, RightArrow } from "../../icons";
 import { BidingSlide } from './bidingSlide';
 import styles from './HeroSection.module.css';
 
-
-const bidingListContents = [
-    {
-        id: 'deeze.eth',
-        authorImg: author_thumb1,
-        amount: '69.67'
-    },
-    {
-        id: '0xC8...038d',
-        authorImg: author_thumb2,
-        amount: '89.79'
-    },
-]
-
-const heroImages = [
-    {
-        thumb: thumb_1
-    },
-    {
-        thumb: thumb_2
-    },
-]
-
 const HeroSection = ({handleIsHistory}) => {
     //Biding items
     const [bids, setBids] = useState([]);
