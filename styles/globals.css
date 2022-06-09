@@ -143,6 +143,12 @@ figure {
   display: none !important;
 }
 
+.slick-slide>div,
+.slick-current>div {
+  width: 100%;
+  height: 100% !important;
+}
+
 @media screen and (max-width: 767px) {
   h2 {
     font-size: 45px;

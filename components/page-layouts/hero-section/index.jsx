@@ -62,7 +62,8 @@ const HeroSection = ({handleIsHistory}) => {
         slidesToScroll: 1,
         fade: true,
         afterChange: () => setUpdateCount(updateCount + 1),
-        beforeChange: (current, next) => console.log(current, next)
+        beforeChange: (current, next) => console.log(current, next),
+        rtl: false
     };
 
     const thumbnailSwiperParams = {
@@ -71,8 +72,14 @@ const HeroSection = ({handleIsHistory}) => {
         fade: true,
         speed: 500,
         slidesToShow: 1,
-        slidesToScroll: 1
+        slidesToScroll: 1,
+        rtl: false
     };
+    const date = new Date();
+    const year = date.getFullYear();
+    const day = String(date.getDate()).padStart(2, 0);
+    const month = date.toLocaleString('default', {month: 'long'});
+    const formatedDate = `${month} ${day}, ${year}`;
   return (
     <section className={styles.hero_section}>
         <div className={styles.hero_thumb}>
@@ -95,7 +102,7 @@ const HeroSection = ({handleIsHistory}) => {
                         <RightArrow />
                         </button>
                     </div>
-                    <div className={styles.date}>June 01, 2022</div>
+                    <div className={styles.date}>{formatedDate}</div>
                 </div>
                 <div className={styles.content_wrap}>
                     <Slider {...contentSwiperParams} asNavFor={nav2} ref={(slider1) => setNav1(slider1)}>
