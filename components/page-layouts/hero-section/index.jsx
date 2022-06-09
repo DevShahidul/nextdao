@@ -78,7 +78,7 @@ const HeroSection = ({handleIsHistory}) => {
         <div className={styles.hero_thumb}>
             <Slider {...thumbnailSwiperParams} asNavFor={nav1} ref={(slider2) => setNav2(slider2)}>
                 {heroImages.map((img, idx) => (
-                    <div className={styles.slide_thumb}>
+                    <div className={styles.slide_thumb} key={`hero_thumb_${idx}`}>
                         <Image src={img.thumb} width={1920} height={780} alt="Hero Slider image" key={`slide_${idx}`}/>
                     </div>
                 ))}
