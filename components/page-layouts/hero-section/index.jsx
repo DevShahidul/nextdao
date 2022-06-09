@@ -4,12 +4,9 @@ import React, { useEffect, useState } from 'react';
 // import Slider from "react-slick";
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
-import author_thumb1 from '../../../public/images/biding-author/author_thumb1.png';
-import author_thumb2 from '../../../public/images/biding-author/author_thumb2.png';
-import thumb_1 from '../../../public/images/hero-slider/thumb_1.jpg';
-import thumb_2 from '../../../public/images/hero-slider/thumb_2.jpg';
 import { LeftArrow, RightArrow } from "../../icons";
 import { BidingSlide } from './bidingSlide';
+import { biddingData } from './biding-data';
 import styles from './HeroSection.module.css';
 
 const HeroSection = ({handleIsHistory}) => {
@@ -26,10 +23,10 @@ const HeroSection = ({handleIsHistory}) => {
         const fetchBids = async () => {
             const {data: result} = await axios.get("https://jsonplaceholder.typicode.com/users");
            
-            setBids(result);
+            setBids(biddingData);
             setLoading(false);
             
-            setCurrentBid(result[currentBidIndex]);
+            setCurrentBid(biddingData[currentBidIndex]);
             console.log(result);
            
         }
@@ -40,22 +37,22 @@ const HeroSection = ({handleIsHistory}) => {
     console.log('Bids: ', bids, 'currentbids', currentBid);
 
     const gotoNext = () => {
-        if(currentBidIndex === 1) setIsFirstBid(true);
+        const indx = currentBidIndex - 1;
+        if(indx === 0) setIsFirstBid(true);
         if(isFirstBid !== true && currentBidIndex !== 0){
             setIsLastBid(false);
-            const indx = currentBidIndex - 1;
-            console.log(indx, currentBidIndex);
+            // console.log(indx, currentBidIndex);
             setCurrentBidIndex(indx)
             setCurrentBid(bids[indx]);
         }
     }
     
     const gotoPrev = () => {
-        console.log(bids.length, currentBidIndex);
-        if(currentBidIndex === bids.length - 2) setIsLastBid(true);
+        const indx = currentBidIndex + 1;
+        // console.log(bids.length, currentBidIndex);
+        if(indx === bids.length - 1) setIsLastBid(true);
         if(isLastBid !== true && currentBidIndex >= 0){
             setIsFirstBid(false);
-            const indx = currentBidIndex + 1;
             console.log(indx);
             setCurrentBidIndex(indx)
             setCurrentBid(bids[indx]);
@@ -72,7 +69,8 @@ const HeroSection = ({handleIsHistory}) => {
     <section className={styles.hero_section}>
         <div className={styles.hero_thumb}>
             <div className={styles.slide_thumb} key={`hero_thumb_`}>
-                <Image src={thumb_1} width={1920} height={780} alt="Hero Slider image" key={`slide_`}/>
+                {console.log("Carac:", currentBid.character)}
+                <Image src={`/${currentBid.character}`} width={1920} height={780} alt="Hero Slider image" key={`slide_`}/>
             </div>
         </div>
         <div className={`container d-flex ${styles.hero_container}`}>

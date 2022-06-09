@@ -1,14 +1,11 @@
 import author_thumb1 from '../../../public/images/biding-author/author_thumb1.png';
 import author_thumb2 from '../../../public/images/biding-author/author_thumb2.png';
-import thumb_1 from '../../../public/images/hero-slider/thumb_1.jpg';
-import thumb_2 from '../../../public/images/hero-slider/thumb_2.jpg';
-import thumb_3 from '../../../public/images/hero-slider/thumb_3.jpg';
 export const biddingData = [
     {
         id: 299,
         date: 'Thu Jun 09 2022 21:30:54 GMT+0600 (Bangladesh Standard Time)',
         bid_amount: '69.87',
-        character: thumb_1,
+        character: 'images/hero-slider/thumb_1.jpg',
         owner: {
             avatar: author_thumb1,
             owner_id: '0xf6b6f07862a02c85628b3a9688beae07fea9c623',
@@ -21,7 +18,7 @@ export const biddingData = [
         id: 298,
         date: 'Thu Jun 08 2022 21:30:54 GMT+0600 (Bangladesh Standard Time)',
         bid_amount: '89.67',
-        character: thumb_2,
+        character: 'images/hero-slider/thumb_2.jpg',
         owner: {
             avatar: author_thumb2,
             owner_id: '0xf6b6f07862a02c85628b3a9688beae07fea9038d',
@@ -34,7 +31,7 @@ export const biddingData = [
         id: 297,
         date: 'Thu Jun 07 2022 20:30:34 GMT+0600 (Bangladesh Standard Time)',
         bid_amount: '53.48',
-        character: thumb_3,
+        character: 'images/hero-slider/thumb_3.jpg',
         owner: {
             avatar: author_thumb1,
             owner_id: '0xf6b6f07862a02c85628b3a9688beae07fea9038d',

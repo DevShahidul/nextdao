@@ -240,6 +240,14 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+.bid_items_list .list_item {
+    display: none;
+}
+
+.bid_items_list .list_item:nth-of-type(-n+2) {
+    display: flex;
+}
+
 .list_item .author_img {
     width: 36px;
     height: 36px;
