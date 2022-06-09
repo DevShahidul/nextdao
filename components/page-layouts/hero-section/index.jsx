@@ -159,7 +159,7 @@ const HeroSection = ({handleIsHistory}) => {
                                     </li>);
                                 })}
                                 </ul>
-                                <a href="#" className={styles.view_all_bids_link}>View all bids</a>
+                                <a href="#" onClick={handleIsHistory} className={styles.view_all_bids_link}>View all bids</a>
                             </div>
                         </div>
                         <div className={styles.slide_item}>

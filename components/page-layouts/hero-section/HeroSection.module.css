@@ -4,7 +4,7 @@
     position: relative;
     min-height: 100vh;
     background: rgb(244, 179, 73);
-    background: linear-gradient(15deg, rgba(244, 179, 73, 1) 0%, rgba(221, 105, 45, 1) 100%);
+    background: linear-gradient(15deg, rgba(244, 179, 73, 1) 0%, rgba(215, 98, 43, 1) 100%);
     padding-top: 147px;
     padding-bottom: 42px;
     overflow: hidden;
@@ -15,11 +15,11 @@
 }
 
 .hero_thumb {
-    width: 100%;
-    height: 100%;
+    width: 49.074%;
+    height: calc(100% - 87px);
     position: absolute;
     left: 0;
-    top: 0;
+    bottom: 0;
 }
 
 .hero_thumb span {
@@ -48,7 +48,7 @@
 
 @media screen and (min-width: 1666px) {
     .hero_thumb img {
-        object-position: top left;
+        object-position: top center;
     }
 }
 
@@ -378,7 +378,7 @@
 
     .hero_thumb {
         position: relative;
-        height: auto;
+        width: 100%;
     }
 
     .hero_thumb span {
