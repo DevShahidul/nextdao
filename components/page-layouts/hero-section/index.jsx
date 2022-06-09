@@ -63,7 +63,7 @@ const HeroSection = ({handleIsHistory}) => {
         fade: true,
         afterChange: () => setUpdateCount(updateCount + 1),
         beforeChange: (current, next) => console.log(current, next),
-        rtl: false
+        // rtl: true
     };
 
     const thumbnailSwiperParams = {
@@ -73,7 +73,7 @@ const HeroSection = ({handleIsHistory}) => {
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
-        rtl: false
+        // rtl: true
     };
     const date = new Date();
     const year = date.getFullYear();
