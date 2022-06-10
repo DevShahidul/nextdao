@@ -22,7 +22,8 @@ const HeroSection = ({handleIsHistory}) => {
     const [isLastBid, setIsLastBid] = useState(false);
     const [currentBid, setCurrentBid] = useState({});
     const [currentBidIndex, setCurrentBidIndex] = useState(0);
-
+    const [seconds, setSeconds] = useState(216000);
+    
     useEffect(() => {
         const fetchBids = async () => {
             const {data: result} = await axios.get("https://jsonplaceholder.typicode.com/users");
@@ -35,8 +36,16 @@ const HeroSection = ({handleIsHistory}) => {
            
         }
         fetchBids();
+
+        // console.log('Time:', formatedTime(1440));
     }, [setBids, setLoading]);
 
+    useEffect(() => {
+        if(seconds > 0){
+           const timer = setTimeout(() => setSeconds(seconds - 1), 1000);
+           seconds === 0 && clearTimeout(timer);
+        }
+    }, [seconds])
 
     console.log('Bids: ', bids, 'currentbids', currentBid);
 
@@ -69,6 +78,7 @@ const HeroSection = ({handleIsHistory}) => {
     const day = String(date.getDate()).padStart(2, 0);
     const month = date.toLocaleString('default', {month: 'long'});
     const formatedDate = `${month} ${day}, ${year}`;
+
   return (
     <section className={styles.hero_section}>
         <div className={styles.hero_thumb}>
@@ -92,7 +102,7 @@ const HeroSection = ({handleIsHistory}) => {
                 </div>
                 <div className={styles.content_wrap}>
                     {loading ? <h2>Loadinng...</h2> : (
-                        <BidingSlide currentBid={currentBid} bids={bids} isFirstBid={isFirstBid} handleIsHistory={handleIsHistory} />
+                        <BidingSlide countdown={seconds} currentBid={currentBid} bids={bids} isFirstBid={isFirstBid} handleIsHistory={handleIsHistory} />
                     )}
                 </div>
             </div>

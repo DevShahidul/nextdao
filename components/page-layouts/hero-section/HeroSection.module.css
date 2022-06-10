@@ -110,6 +110,7 @@
 
 .info_col:nth-child(2n+2) {
     padding-left: 44px;
+    min-width: 223px;
 }
 
 .info_col:nth-child(2n+2)::before {

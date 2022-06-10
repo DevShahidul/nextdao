@@ -5,7 +5,7 @@ import { BirthCake, ExternalLink, HelpIcon, Icon3line, LoveIcon, StackedFiles, V
 import InputField from '../../input-field';
 import styles from './HeroSection.module.css';
 
-export const BidingSlide = ({currentBid, bids, isFirstBid, handleIsHistory}) => {
+export const BidingSlide = ({currentBid, bids, isFirstBid, handleIsHistory, countdown}) => {
     const {id, bid_amount, owner} = currentBid;
     const {owner_id, avatar, born, held_by, held_url} = owner;
 
@@ -16,6 +16,8 @@ export const BidingSlide = ({currentBid, bids, isFirstBid, handleIsHistory}) => 
     // const born = 'Jun 09, 2022';
     // const held_by = username;
     // const held_url = website;
+
+    const countdownClock = `${Math.trunc((countdown / 60 / 60) % 24)}h ${String(Math.trunc((countdown / 60) % 60)).padStart(2, 0)}m ${Math.trunc(countdown % 60)}s`;
 
     const maskId = (id) => {
         const str = id + '';
@@ -44,7 +46,7 @@ export const BidingSlide = ({currentBid, bids, isFirstBid, handleIsHistory}) => 
                     <div className={styles.info_col}>
                     <span className={styles.info_label}>Auction ends in</span>
                     <div className={`d-flex align-center ${styles.info_content}`}>
-                        <span className={styles.info_text}>12h 43m 6s</span>
+                        <span className={styles.info_text}>{countdownClock}</span>
                     </div>
                     </div>
                 </div>
