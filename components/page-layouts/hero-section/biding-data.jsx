@@ -3,7 +3,7 @@ import author_thumb2 from '../../../public/images/biding-author/author_thumb2.pn
 export const biddingData = [
     {
         id: 299,
-        date: 'Thu Jun 09 2022 21:30:54 GMT+0600 (Bangladesh Standard Time)',
+        date: '2022-10-01T13:15:33.035Z',
         bid_amount: '69.87',
         character: 'images/hero-slider/thumb_1.jpg',
         owner: {
@@ -16,7 +16,7 @@ export const biddingData = [
     },
     {
         id: 298,
-        date: 'Thu Jun 08 2022 21:30:54 GMT+0600 (Bangladesh Standard Time)',
+        date: '2022-09-25T06:04:23.907Z',
         bid_amount: '89.67',
         character: 'images/hero-slider/thumb_2.jpg',
         owner: {
@@ -29,7 +29,7 @@ export const biddingData = [
     },
     {
         id: 297,
-        date: 'Thu Jun 07 2022 20:30:34 GMT+0600 (Bangladesh Standard Time)',
+        date: '2022-08-25T14:18:46.235Z',
         bid_amount: '53.48',
         character: 'images/hero-slider/thumb_3.jpg',
         owner: {
