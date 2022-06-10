@@ -1,3 +1,4 @@
+import Moment from 'moment';
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
@@ -7,16 +8,11 @@ import { accordionContents } from '../components/accordion-pane/accordionContent
 import { ExternalLink, Icon3line } from "../components/icons";
 import { BlogSection, HeroSection } from '../components/page-layouts';
 import { biddingData } from '../components/page-layouts/hero-section/biding-data';
-// import Gallery from '../components/slider';
-import author_thumb1 from '../public/images/biding-author/author_thumb1.png';
-import author_thumb2 from '../public/images/biding-author/author_thumb2.png';
 import modal_figure from '../public/images/modal_figure.png';
 import styles from "../styles/Home.module.css";
-import Moment from 'moment';
 
 
 const Home: NextPage = () => {
-  // SwiperCore.use([Navigation]);
   const [isHistory, setIsHistory] = useState(false);
 
   const maskId = (id) => {
@@ -25,16 +21,6 @@ const Home: NextPage = () => {
       const last = str.slice(-4);
       return first+last.padStart(8, '.');
   }
-
-  // const formateDate = (date) => {
-  //   const day = date.getDate();
-  //   const month = date.getMonth() + 1;
-  //   const year = date.getFullYear();
-  //   const hour = date.getHours();
-  //   const min = date.getMinutes();
-  //   const time = `${month} ${day}, ${year}, ${hour}:${min}`;
-  //   return Intl.DateTimeFormat('en-US').format(time);
-  // }
 
   return (
     <div className={`d-flex direction-column ${styles.page_container}`}>
@@ -47,7 +33,6 @@ const Home: NextPage = () => {
       <main className={styles.main}>
         <HeroSection handleIsHistory={()=> setIsHistory(!isHistory)} />
         <BlogSection />
-        {/* <Gallery /> */}
         <section className={styles.accordion_section}>
           <div className="container">
             <Accordion panels={ accordionContents } />

@@ -1,6 +1,5 @@
 import Image from "next/image";
 import React, { useState } from 'react';
-import author_thumb1 from '../../../public/images/biding-author/author_thumb1.png';
 import { BirthCake, ExternalLink, HelpIcon, Icon3line, LoveIcon, StackedFiles, VerifiedIcon } from "../../icons";
 import InputField from '../../input-field';
 import styles from './HeroSection.module.css';
@@ -8,14 +7,6 @@ import styles from './HeroSection.module.css';
 export const BidingSlide = ({currentBid, bids, isFirstBid, handleIsHistory, countdown}) => {
     const {id, bid_amount, owner} = currentBid;
     const {owner_id, avatar, born, held_by, held_url} = owner;
-
-    // const {address, id, username, website} = currentBid;
-    // const bid_amount = address.geo.lng;
-    // const owner_id = address.zipcode;
-    // const avatar = author_thumb1;
-    // const born = 'Jun 09, 2022';
-    // const held_by = username;
-    // const held_url = website;
 
     const countdownClock = `${Math.trunc((countdown / 60 / 60) % 24)}h ${String(Math.trunc((countdown / 60) % 60)).padStart(2, 0)}m ${Math.trunc(countdown % 60)}s`;
 
@@ -25,8 +16,6 @@ export const BidingSlide = ({currentBid, bids, isFirstBid, handleIsHistory, coun
         const last = str.slice(-4);
         return first+last.padStart(8, '.');
     }
-
-    console.log(maskId(owner_id));
     
     const [bidField, setBidField] = useState('');
     const onHandleChange = (e) => setBidField(e.target.value);
@@ -68,9 +57,7 @@ export const BidingSlide = ({currentBid, bids, isFirstBid, handleIsHistory, coun
                 <div className={styles.bid_items_wrap}>
                     <ul className={styles.bid_items_list}>
                     {bids.map((item, index) => {
-                        // const owner_id = item.address.zipcode;
-                        // const bid_amount = item.address.geo.lng;
-
+                        
                         const {bid_amount} = item;
                         const {owner_id, avatar} = item.owner;
                         return (
