@@ -55,22 +55,37 @@
   margin-bottom: 0;
 }
 
+.content code,
+.content a {
+  display: inline-block;
+  color: #f5bb30;
+}
+
 .content ul {
   padding-left: 35px;
 }
 
-.content p + p,
-.content p + ul,
-.content ul + p {
+.content p+p,
+.content p+ul,
+.content ul+p,
+.content code+p,
+.content code+ul {
   margin-top: 24px;
 }
 
+.content p+code,
+.content ul+code {
+  margin-top: 16px;
+}
+
 .content p:last-child,
-.content ul:last-child {
+.content ul:last-child,
+.content code:last-child {
   margin-bottom: 24px;
 }
 
 @media (max-width: 767px) {
+
   .accordion_title,
   .accordion_title_active,
   .content {

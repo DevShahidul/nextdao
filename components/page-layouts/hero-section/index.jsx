@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import { LeftArrow, RightArrow } from "../../icons";
@@ -68,6 +68,7 @@ const HeroSection = ({ handleIsHistory }) => {
             src={`/${currentBid.character}`}
             width={1920}
             height={780}
+            priority={false}
             alt="Hero Slider image"
           />
         </div>

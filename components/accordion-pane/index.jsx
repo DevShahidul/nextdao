@@ -13,7 +13,6 @@ class Panel extends Component {
 
   componentDidMount() {
     window.setTimeout(() => {
-      // console.log('Elements wrapper:', this.wrapper.current.children);
       const height = this.wrapper.current.children[1].scrollHeight;
       this.setState({
         height,
@@ -52,28 +51,12 @@ class Panel extends Component {
           style={innerStyle}
           aria-hidden={!isActive}
         >
-          {Object.entries(content).map((key, value, index) => {
-            const renderContent = (param) => {
-              const createElement = (el) => {
-                // const checkLink = (tx) => {
-                //     txt.slice
-                // }
-                const para =
-                  el[0] === "p" &&
-                  el[1].map((txt) => React.createElement("p", {}, `${txt}`));
-                const list =
-                  el[0] === "ul" &&
-                  el[1].map((liTxt) => React.createElement("li", {}, liTxt));
-                return (
-                  <>
-                    {para && para}
-                    {list && <ul>{list}</ul>}
-                  </>
-                );
-              };
-              return createElement(param);
-            };
-            return renderContent(key);
+          {content.map((item, idx) => {
+            const paragraphs = item.type === 'p' && item.texts.map((txt, i) => <p key={`paragraph_02${idx}_$7{i}`}>{txt}</p>);
+            const lists = item.type === 'ul' && <ul>{item.texts.map((txt, i) => <li key={`list_6${idx}_1${i}`}>{txt}</li> )}</ul>;
+            const codes = item.type === 'code' && item.texts.map((txt, i) => <code key={`code_9${idx}_${i}`}>{txt}</code>);
+            
+            return [paragraphs, lists, codes];
           })}
         </div>
       </div>
