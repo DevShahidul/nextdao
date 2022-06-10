@@ -1,12 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
 
 @font-face {
-  font-family: 'GIN Experimental';
-  src: url('../public/fonts/GINExperimental-Regular.eot');
-  src: url('../public/fonts/GINExperimental-Regular.eot?#iefix') format('embedded-opentype'),
-    url('../public/fonts/GINExperimental-Regular.woff2') format('woff2'),
-    url('../public/fonts/GINExperimental-Regular.woff') format('woff'),
-    url('../public/fonts/GINExperimental-Regular.ttf') format('truetype');
+  font-family: "GIN Experimental";
+  src: url("../public/fonts/GINExperimental-Regular.eot");
+  src: url("../public/fonts/GINExperimental-Regular.eot?#iefix")
+      format("embedded-opentype"),
+    url("../public/fonts/GINExperimental-Regular.woff2") format("woff2"),
+    url("../public/fonts/GINExperimental-Regular.woff") format("woff"),
+    url("../public/fonts/GINExperimental-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -22,7 +23,7 @@ body {
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
   line-height: 24px;
   color: #111111;
@@ -40,7 +41,7 @@ a {
 h2,
 h3 {
   font-weight: normal;
-  font-family: 'GIN Experimental';
+  font-family: "GIN Experimental";
 }
 
 h2 {
@@ -70,7 +71,7 @@ h3 {
 .align-center {
   -webkit-box-align: center;
   -ms-flex-align: center;
-  align-items: center
+  align-items: center;
 }
 
 .justify-center {
@@ -94,7 +95,7 @@ h3 {
   box-shadow: none;
   outline: none;
   cursor: pointer;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-size: 14px;
   line-height: 21px;
@@ -134,7 +135,6 @@ figure {
   opacity: 0.2;
 }
 
-
 .swiper-slide:not(.swiper-slide-active) {
   opacity: 0 !important;
 }
@@ -143,8 +143,8 @@ figure {
   display: none !important;
 }
 
-.slick-slide>div,
-.slick-current>div {
+.slick-slide > div,
+.slick-current > div {
   width: 100%;
   height: 100% !important;
 }

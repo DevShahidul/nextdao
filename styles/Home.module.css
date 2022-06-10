@@ -43,7 +43,7 @@
   object-fit: cover;
 }
 
-.list_item .author_img+.author_id {
+.list_item .author_img + .author_id {
   margin-left: 8px;
 }
 
@@ -70,7 +70,7 @@
   line-height: 21px;
 }
 
-.biding_amount_icon+.biding_amount_text {
+.biding_amount_icon + .biding_amount_text {
   margin-left: 6px;
 }
 
@@ -107,7 +107,7 @@
   list-style: none;
 }
 
-.winner_info_item+.winner_info_item {
+.winner_info_item + .winner_info_item {
   margin-top: 20px;
 }
 
@@ -156,7 +156,6 @@
   padding-bottom: 50px;
 }
 
-
 /* Modal style */
 .modal_title_row {
   width: 100%;
@@ -190,29 +189,27 @@
   margin-bottom: 0;
 }
 
-.modal_title_row+.bid_items_wrap {
+.modal_title_row + .bid_items_wrap {
   margin-top: 28px;
   max-height: 300px;
   overflow-x: hidden;
   overflow-y: auto;
 }
 
-
-.modal_title_row+.bid_items_wrap .list_item {
+.modal_title_row + .bid_items_wrap .list_item {
   border-color: rgba(17, 17, 17, 0.1);
 }
 
-.modal_title_row+.bid_items_wrap .list_item:last-child {
+.modal_title_row + .bid_items_wrap .list_item:last-child {
   border: 0;
 }
 
-.modal_title_row+.bid_items_wrap .biding_amount_icon path,
-.modal_title_row+.bid_items_wrap .external_link path {
+.modal_title_row + .bid_items_wrap .biding_amount_icon path,
+.modal_title_row + .bid_items_wrap .external_link path {
   fill: #111111;
 }
 
 @media (max-width: 991px) {
-
   .winner_info_item,
   .btn_row {
     justify-content: flex-start;
@@ -251,7 +248,6 @@
 }
 
 @media (max-width: 767px) {
-
   /* Accordion section */
   .accordion_section {
     padding-top: 0px;
@@ -259,7 +255,6 @@
 }
 
 @media screen and (max-width: 575px) {
-
   /* Modal style */
   .modal_title_row {
     flex-flow: row wrap;
@@ -277,5 +272,4 @@
   .title_content {
     margin-top: 25px;
   }
-
 }
