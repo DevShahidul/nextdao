@@ -52,9 +52,9 @@ class Panel extends Component {
           aria-hidden={!isActive}
         >
           {content.map((item, idx) => {
-            const paragraphs = item.type === 'p' && item.texts.map((txt, i) => <p key={`paragraph_02${idx}_$7{i}`}>{txt}</p>);
-            const lists = item.type === 'ul' && <ul>{item.texts.map((txt, i) => <li key={`list_6${idx}_1${i}`}>{txt}</li> )}</ul>;
-            const codes = item.type === 'code' && item.texts.map((txt, i) => <code key={`code_9${idx}_${i}`}>{txt}</code>);
+            const paragraphs = item.type === 'p' && item.texts.map((txt, i) => <p key={`paragraph_${idx}_${i+1}`}>{txt}</p>);
+            const lists = item.type === 'ul' && <ul>{item.texts.map((txt, i) => <li key={`list_${idx}_${i+1}`}>{txt}</li> )}</ul>;
+            const codes = item.type === 'code' && item.texts.map((txt, i) => <code key={`code_${idx}_${i+1}`}>{txt}</code>);
             
             return [paragraphs, lists, codes];
           })}

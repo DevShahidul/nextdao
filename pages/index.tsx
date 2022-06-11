@@ -2,7 +2,7 @@ import Moment from "moment";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import React, { useState } from "react";
+import { useState } from "react";
 import { Accordion, Footer, Header, Modal } from "../components";
 import { accordionContents } from "../components/accordion-pane/accordionContent";
 import { ExternalLink, Icon3line } from "../components/icons";
@@ -63,7 +63,7 @@ const Home: NextPage = () => {
                 return (
                   <li
                     className={`d-flex align-center ${styles.list_item}`}
-                    key={`biding_item_${index}`}
+                    key={`biding_${maskId(owner_id)}_${index}`}
                   >
                     <div className={`d-flex align-center ${styles.author}`}>
                       <figure className={styles.author_img}>
