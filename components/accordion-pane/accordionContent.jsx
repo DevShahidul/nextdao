@@ -5,12 +5,12 @@ export const accordionContents = [
       {
         type: 'ul',
         texts: [
-          "Nouns artwork is in the <a> public domain. </a>",
+          "Nouns artwork is in the public domain.",
           "One Noun is trustlessly auctioned every 24 hours, forever.",
           "100% of Noun auction proceeds are trustlessly sent to the treasury.",
           "Settlement of one auction kicks off the next.",
           "All Nouns are members of Nouns DAO.",
-          "Nouns DAO uses a fork of <a> Compound Governance. </a>",
+          "Nouns DAO uses a fork of Compound Governance.",
           "One Noun is equal to one vote.",
           "The treasury is controlled exclusively by Nouns via governance.",
           "Artwork is generative and stored directly on-chain (not IPFS).",
@@ -34,7 +34,7 @@ export const accordionContents = [
     content: [
       {
         type: 'p',
-        texts: ["Nouns DAO utilizes a fork of <a> Compound Governance and </a> is the main governing body of the Nouns ecosystem. The Nouns DAO treasury receives 100% of ETH proceeds from daily Noun auctions. Each Noun is an irrevocable member of Nouns DAO and entitled to one vote in all governance matters. Noun votes are non-transferable (if you sell your Noun the vote goes with it) but delegatable, which means you can assign your vote to someone else as long as you own your Noun."]
+        texts: ["Nouns DAO utilizes a fork of Compound Governance and is the main governing body of the Nouns ecosystem. The Nouns DAO treasury receives 100% of ETH proceeds from daily Noun auctions. Each Noun is an irrevocable member of Nouns DAO and entitled to one vote in all governance matters. Noun votes are non-transferable (if you sell your Noun the vote goes with it) but delegatable, which means you can assign your vote to someone else as long as you own your Noun."]
       }
     ]
   },
@@ -68,7 +68,7 @@ export const accordionContents = [
       },
       {
         type: 'p',
-        texts: ["You can experiment with off-chain Noun generation at the <a> Playground.</a>"]
+        texts: ["You can experiment with off-chain Noun generation at the Playground."]
       }
     ]
   },
